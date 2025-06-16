@@ -3,14 +3,14 @@ namespace Data.CodeImplementation
 {
     internal class Catalog : ICatalog
     {
-        public Catalog(string id, string name, float price)
+        public Catalog(int id, string name, float price)
         {
             Id = id;
             Name = name;
             Price = price;
         }
 
-        public string Id 
+        public int Id 
         { 
             get; 
             set; 

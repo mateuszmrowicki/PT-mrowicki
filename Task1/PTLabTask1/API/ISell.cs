@@ -2,11 +2,11 @@
 {
     public interface ISell : IEvent
     {
-        string StateId
+        int StateId
         {
             get;
         }
-        string UserId
+        int UserId
         {
             get;
         }

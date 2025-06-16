@@ -13,12 +13,12 @@ namespace Test
         {
         var DR = IDataRepository.CreateNewRepository(null);
         var logicDR = IBusinessLogic.CreateNewLogic(DR);
-        DR.AddUser(new User("C0001", "Bill", "Nickolson", "219 Grove St. New York"));
-        ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
+        DR.AddUser(new User(0001, "Bill", "Nickolson", "219 Grove St. New York"));
+        ICatalog c1 = new Catalog(01, "Night Table Aga", 299.99f);
         DR.AddCatalog(c1);
-        DR.AddState(new State("Q1", 24, c1));
-        logicDR.SellItem("C0001", "Q1", 2);
-        Assert.AreEqual(DR.GetState("Q1").Quantity, 22);
+        DR.AddState(new State(1, 24, c1));
+        logicDR.SellItem(0001, 1, 2);
+        Assert.AreEqual(DR.GetState(1).Quantity, 22);
         }
 
         [TestMethod]
@@ -26,12 +26,12 @@ namespace Test
         {
             var DR = IDataRepository.CreateNewRepository(null);
             var logicDR = IBusinessLogic.CreateNewLogic(DR);
-            DR.AddUser(new User("C0001", "Bill", "Nickolson", "219 Grove St. New York"));
-            ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
+            DR.AddUser(new User(0001, "Bill", "Nickolson", "219 Grove St. New York"));
+            ICatalog c1 = new Catalog(01, "Night Table Aga", 299.99f);
             DR.AddCatalog(c1);
-            DR.AddState(new State("Q1", 24, c1));
-            logicDR.SupplyItem("C0001", "Q1", 20);
-            Assert.AreEqual(DR.GetState("Q1").Quantity, 44);
+            DR.AddState(new State(1, 24, c1));
+            logicDR.SupplyItem(0001, 1, 20);
+            Assert.AreEqual(DR.GetState(1).Quantity, 44);
         }
 
         [TestMethod]
@@ -39,16 +39,16 @@ namespace Test
         {
             var DR = IDataRepository.CreateNewRepository(null);
             var logicDR = IBusinessLogic.CreateNewLogic(DR);
-            DR.AddUser(new User("C0001", "Bill", "Nickolson", "219 Grove St. New York"));
-            ICatalog c1 = new Catalog("S01A", "Night Table Aga", 299.99f);
+            DR.AddUser(new User(0001, "Bill", "Nickolson", "219 Grove St. New York"));
+            ICatalog c1 = new Catalog(01, "Night Table Aga", 299.99f);
             DR.AddCatalog(c1);
-            DR.AddState(new State("Q1", 24, c1));
-            logicDR.SellItem("C0001", "Q1", 2);
-            logicDR.ReturnItem("C0001", "Q1", 1);
+            DR.AddState(new State(1, 24, c1));
+            logicDR.SellItem(0001, 1, 2);
+            logicDR.ReturnItem(0001, 1, 1);
 
-            Assert.AreEqual(DR.GetState("Q1").Quantity, 23);
+            Assert.AreEqual(DR.GetState(1).Quantity, 23);
 
-            Assert.ThrowsException<Exception>(() => logicDR.ReturnItem("C0001", "Q2", 1));
+            Assert.ThrowsException<Exception>(() => logicDR.ReturnItem(0001, 2, 1));
         }
     }
 }

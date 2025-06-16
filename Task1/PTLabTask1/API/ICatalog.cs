@@ -2,7 +2,7 @@
 {
     public interface ICatalog
     {
-        string Id 
+        int Id 
         { 
             get; 
             set; 

@@ -5,14 +5,14 @@ namespace Data.CodeImplementation
     internal class State : IState
     {
         private ICatalog Catalog;
-        public State(string stateId, int quantity, ICatalog catalog)
+        public State(int stateId, int quantity, ICatalog catalog)
         {
             StateId = stateId;
             Quantity = quantity;
             Catalog = catalog;
         }
 
-        public string StateId { 
+        public int StateId { 
             get;
             set;
         }
@@ -20,6 +20,6 @@ namespace Data.CodeImplementation
             get; 
             set; 
         }
-        public string ItemId => Catalog.Id;
+        public int ItemId => Catalog.Id;
     }
 }

@@ -19,10 +19,10 @@ namespace Data.CodeImplementation
         public override void AddCatalog(ICatalog c) { 
             data.dictionary.Add(c.Id, c);
         }
-        public override void RemoveCatalog(string id) { 
+        public override void RemoveCatalog(int id) { 
             data.dictionary.Remove(id);
         }
-        public override ICatalog GetCatalog(string id) {
+        public override ICatalog GetCatalog(int id) {
             return data.dictionary[id];
         }
         public override IEnumerable<ICatalog> GetCatalogsList() {
@@ -34,7 +34,7 @@ namespace Data.CodeImplementation
         public override void AddUser(IUser u) { 
             data.users.Add(u);
         }
-        public override void RemoveUser(string id) {
+        public override void RemoveUser(int id) {
             for (int i = 0; i < data.users.Count; i++)
             {
                 if (data.users[i].Id == id)
@@ -43,7 +43,7 @@ namespace Data.CodeImplementation
                 }
             }
         }
-        public override IUser GetUser(string id) { 
+        public override IUser GetUser(int id) { 
             for (int i = 0;i < data.users.Count; i++)
             {
                 if (data.users[i].Id == id) 
@@ -64,7 +64,7 @@ namespace Data.CodeImplementation
         public override void RemoveState(IState s) {
             data.states.Remove(s);
         }
-        public override IState GetState(string id) {
+        public override IState GetState(int id) {
             for (int i = 0; i < data.states.Count; i++)
             {
                 if (data.states[i].StateId == id)
@@ -100,7 +100,7 @@ namespace Data.CodeImplementation
 
         //---------------------------------------------------
 
-        public override void ChangeQuantity(string stateId, int change)
+        public override void ChangeQuantity(int stateId, int change)
         {
             GetState(stateId).Quantity += change;
         }

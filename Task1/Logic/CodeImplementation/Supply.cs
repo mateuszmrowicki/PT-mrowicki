@@ -4,10 +4,10 @@ namespace Logic.CodeImplementation
 {
     internal class Supply : ISupply
     {
-        public string StateId { 
+        public int StateId { 
             get; set;
         }
-        public string UserId
+        public int UserId
         {
             get; set;
         }
@@ -16,7 +16,7 @@ namespace Logic.CodeImplementation
             get; set; 
         }
 
-        public Supply(string stateId, string userId, int quantityChanged)
+        public Supply(int stateId, int userId, int quantityChanged)
         {
             StateId = stateId;
             UserId = userId;

@@ -4,11 +4,11 @@ namespace Logic.CodeImplementation
 {
     internal class Return : IEvent
     {
-        public string StateId { get; }
-        public string UserId { get; }
+        public int StateId { get; }
+        public int UserId { get; }
         public int QuantityChanged { get; set; }
 
-        public Return(string stateID, string userID, int quantityChanged)
+        public Return(int stateID, int userID, int quantityChanged)
         {
             StateId = stateID;
             UserId = userID;
